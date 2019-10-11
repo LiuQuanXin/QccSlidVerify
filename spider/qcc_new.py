@@ -37,7 +37,6 @@ class BrandSpider(object):
         self.page = []
         option = webdriver.FirefoxOptions()
         path = '/Users/admin/Downloads/geckodriver'
-        # path = '/data/spider/liu/local_install/sbin/geckodriver'
         # option.add_argument('-headless')
         ua = new_header()
         print ua
@@ -74,16 +73,12 @@ class BrandSpider(object):
         ActionChains(self.driver).release().perform()
 
     def crawl(self):
-        self.driver.get("https://www.qichacha.com/user_login?back=%2F")
+        self.driver.get("http://127.0.0.1:8880/qcc")
         # BTN = self.wait.until(EC.element_to_be_clickable((By.ID, 'nc_1_n1z')))
         # print BTN
-        # client = dbPool.get_redis_pool(params='redis_0')
+        
         while 1:
             try:
-                # lk = client.llen('qcc_track')
-                # logger.warning(lk)
-                # if lk > 50000:
-                #     break
                 for i in range(1, 7):
                     time.sleep(2)
                     # print self.driver.page_source
