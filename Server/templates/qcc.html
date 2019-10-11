@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="leslie">
+    <title>会员登录 - 企查查</title>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/icon.css" type="text/css"/>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/font.css" type="text/css"/>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/app.css?time=1561716350" type="text/css"/>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/common.css?time=1561716350" type="text/css"/>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/pro/css/simple-line-icons.css" type="text/css"/>
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/app_ie8.css?time=1508428800" type="text/css"/>
+    <script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/html5shiv.js"></script>
+    <script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/respond.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="https://www.qichacha.com/material/js/siteconfig.js?time=1561716350"></script>
+    <script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/qrcode.min.js"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.qrcode.min.js"></script>
+    <script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/js/echarts.min.js"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/china.js?time=1508428800"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/chartsUtil.js?time=1561716350"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/kslide.js?time=1561716350"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/searchList.js?time=1561716350"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/phoneSelect.js?time=1561716350"></script>
+    <script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/toastr.css?time=1561716350"/>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/moment.js"></script>
+    <script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/toastr.js" type="text/javascript"></script>
+    <script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/custom.js?time=1561716350"></script>
+    <script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/zhuge.js?time=1561716350"></script>
+    <script type="text/javascript">
+        var userId = '';
+        var userGroupid = '';
+        var freeCompanies = ["3065012a7bc3f9583a8d09fb9d2f38b8", "c1127ec9eaf4faa3f31d17bf7c90adf8", "c57a9bba7dd591ca78a67beee385bde0", "19e04b5660c60f271e8e9ebcab490faf", "84a3f1dc246131bd0410a1fd9d384460", "a58533710987ecf98159545b61505a74", "5e0f1e8b864ffbffd3b78eea10961487", "127fcf53de2598be86ab1b3cad165cf1", "9a3c22dfce58dfd8090d59451971229c", "e3e9456716828b1582b34ec25f7dd2e7", "9cce0780ab7644008b73bc2120479d31", "10f538f5dca9fde373612ff44d231d20", "7d294eaabd0bb9b1f316026d4856b41a", "2b6d4910b7514255bb43c36c170e48e3", "815c4b7bca5e74db130b992ea2bc1b88", "bc740f75e5e9b948151f5c608f33030c", "a6dc74fe485c730bc0c71f84ddb4e3a6", "669b7e5de0c437f21b10ddc4d70f4360", "59a1bc8739127dff9ea7e58a8280c4ae", "e45ee37279ffb3f2ce9bbbcfa39d8133", "d2f8562b4fc953539f8e926b8f3f2f08", "18ff2c7ad1d11bfe40e0bec84f6d04d3", "d2240852e88060480af46821b63b7cef", "c9a132f0702d1d7fcb4895673a55f426", "84c17a005a759a5e0d875c1ebb6c9846", "90d3ff3169f1200ef62d78034df9c54e", "7bd0ef47b296f6dd1ea330751bf56612", "cfe8879a8664ad3a373a103e9b5cc526", "c70a55cb048c8e4db7bca357a2c113e0", "b70a10f461272c5b5ed3d2b8d2b03f69", "a74fc07ca4735f8d8bdd3fbee0c6f6c0", "fab96b719ef6387bd9d095bec03de3f0", "9cce0780ab7644008b73bc2120479d31"];
+        var freePeople = ["p202afa75ec282beabae2dd5d1f8e521", "p2f4391f2600fcc10442c8f22606be20", "p146c9f00d63c0fc5e1d4634c917889e", "peff4efbd8aaa94d852a42d6bd4f622e", "pd260c6712ed49ee88504a64c5ed9482", "p347ca283005d596e26b5705fe3e5424", "p25fe19b03899303d307235eaa471916", "pr51b8951f1049973a8ba758266b6779", "p871b2ad73b8b07e3997b0db7fcf9772", "p9fa343b3bb5216b246c72aeb77bce0c", "p67d2355b8ca06b442eda7b5a55b4803", "p226df53c2baa849d6934a9089085ebf", "pc0afc496a38fb16121ba654241bee5b", "pc4a47cfe2e67199a3c45d9f8c40e1c0", "p593208d3aa8e49707325de214a8cb60", "p557b82fef8b08e481aadb65085b008b", "p04609ece9fe504be41433742c1bf3eb", "p522e021cee9336bfb6097250baa3e1b", "p568dbf4e82ed6effd2ea1682c7943b8", "p089070bd9e914e774ef3e95d00ec5b0", "p3483c261f318de061fb3ded0508bf90", "p82222ef85bfd379a8e5226dadc543dd", "p684b3f0c79b5dfe6d8a290ba66e798a", "pc4eb763297cf4b8076c2e0d2fe64617", "p287aa836f4e2c3c6597d09f37731f85", "p858a1f2f2e7864fac8d3acce4c8bb8f", "p8cb6c16db2ea8fac8ecaadefe35ff8b", "p6b2cf613dd4772da8ff3a9575eec8bf", "p0b1f20c4c28963ace6eff596cbb7214", "pfd208a680dc4871736b7001274ba8f0", "pdd3325c48473fcd64180921d82ead80", "pbbefb7a246f4e86a033713e889f9674", "pe366442cb673caf54889e6df853e0c0", "pf6ea929da129db627bfcf9bf48edc65", "p1856f2582e91cf6869be9652cf91512", "pde0ba11f9cc81e8e22b89d378dd597b", "pc127c37072772dabd4865bd62459891", "pe919b2bf2e9c6cdd24d8b63f5969fdd", "p1db0b9e274d3e70dd9a2334ad82b93b", "p38b6a9f4201932948f613f90ab24cdd", "p0e6f9e9a26a0e41c4a3f9be7c062ef2", "p9070853c3d33d38134c64a156989284", "pbccd0d3eb5ada9952e52772f9e54ebe", "p79bb7b0dd3f36e6e5f5100c4e3235a9", "pr9c47cb6b2a96048c1d49d1ec72b3c7", "p89c2161a36e89cd81bc47424c28ae5b", "pae9614885f6fe1df986a5657337915a", "pd24f0e6c29ec7afe56cac57d665a70b", "p32d88b0b48cd2bbcd9d4f29b1b1670d", "p7b171afb629657b151c43bf3e718155", "p375870fa646d110dde4fbe356f1913e", "p0d43bf24ced3d482947792b410b3892", "p2766646c26fb8bf53f01c17c0cd1a7e", "peabcad582bff5cc35feddb8a2dca458", "p9e7818eb8ffc10380ddeb37549c3594", "p62f5e7603c2870f0316e439db89d33e", "p8bb365678cceb173c3f6645fac32463", "pd7d02c68b11c928bc5c5f3f68a43bd8", "pd99973e6e867199057f35891f10ece9", "p5bc1e3c3f62ed3437786bc969600b9a", "pdc2b7a3cc2c414b3910a1d9e116567a", "pa884808a0e7526dd17a682739cb38ec", "p0b093ef01998ca26f345d4231003a9b", "p6abbf243fc5557f96d4488fde8a89f5", "pa85a527d51f75da260083b1cf98da24", "p24129f60d16a9d20e70f29452341dec", "p507f1693d86036364ec3b5b4d3c0639", "p60d00d52bf712741e2fc7f435a31302", "p4609f5b766b75d4ab09180fa954da02", "p6da28fd74891226f20838f3900fad36", "pa43fd5c3172044465f25069df6e61b8", "pbfd190fa68be5988ff53ae9c1fb75e7", "p189c9b0f7e004118b9484f47e6cda68", "pcbfd37ad2a2598da9a6b5de289835dd", "p96fe6a8b395b31912ecb7e1f41f23b0", "pea5ac417585edc0effd7d23406510da", "pd57e12ca20e0096dfea61993dfe48f8", "p03cf330a686332cfe9cb8f36a8f3ab8", "p8ca4283fb80cf988920545e99aef3a4", "p1910534b4ae98fea35ddbeb1d61cd44", "pf3b1bf00922bac873eec7950cecec88", "pb5d99e1912cf2b87f96c7fdaa129ebe", "pb6f2f51a297e57acd8a8a161a6a28bc", "p131e16ad01343fa580933ad37cd33cb", "p70e7789ba2d4e8172cc4fec474711fb", "p6609596e149d5bc0201a0b9f4e4fcb7", "pb7beff14c56b6f216f92ad95d874f51", "pad06603add12c231e78caab20a05f6c", "p411cb5d3d6a3399aa210df8845090ea", "pf614487a898ad76c39ec0fc65ec3d4f", "p954d6bbb51b05a8b3f91e51e79901a9", "p5b288352cf3b9499b9271bf888008df", "p0ca25440e7114c5974d01d583e52b00", "pc747a2d6aaa24efad55793147bc7987", "p2a2c9a1417dfff19e607aa3b30787b9", "p44cb4832f4146f286a2c5c4ab4ef673", "p7cb6f77da9f15766cb65765761c9d19", "p38bfd08992f02ba2a136ca892d62899", "pd05b697b081dcb4e66719032c2cc760", "p61fbfc3a108d8efaf565de1306e23a0", "p21c63257afca04e61ff32ac5580572a", "p1ec3c35fa9051d8723047b80453ae69", "p9d9efeb5aa665dbe66525ced8158f90", "pb0489d8530decee9a061f3be5732844", "p4bcf05c17b1b0918890fe3a5e64d41f", "pfa52806be628929568e0dcbd943d57e", "p18da2d9c2244c6dba4180f0d38a7716", "p30833a0589ab2f56f93bd113bbaf9bd", "pdd9194581da5dda4f700baebc44cc31", "pf21af25ef345c47daa9e738732edfa6", "pe553922ca919d6a7258c4056e2ab6b7", "p7737993e45432ed0e721b28267e058a", "p6fb279283ceeba19fe9e85acf4c1f7e", "p784a2184d94be1818b6d522b5c8a9d9", "pd9751940a8bdcf373ae27804f29c12a", "pa313dc90dffce21f98187ca8b1eaa15", "p8c945c9f031c2fa391208aeb9a63777", "pf1e6aed975eb577cb46d51ac7ec3f14", "p91f92d0f783be4faba5935904f6e2e1", "pb85b223185323f8cc668b7146ddaba9", "p4b2c9d74f0a53dc7834fb9aaed58bfd", "p84c368f313b4d0808e3fb8ca36e10ad", "p917b446e33f719e683fa127465c03bc", "p14811e6d3e3c6380ce34dc64d6bb0c2", "p325ad0d3c574b124e802f3ad612b7bd", "pb46f67ed928d48c6f59af057ca64fcf", "pc5e58ea25a0966d860efa862e64a4b3", "p0cf2da4ed6ccd9fff31cd232bd3a795", "p2bf510b2944458716d0a263913866f1", "p2bfa369c340fc42e4c408a98f0a1f26", "p4f92d97100bd868d73fa62e9ce00b28", "p592a5a06fd6d1ffa4a204e0c499de24", "pa289f26dbfa128c37beb57b793edc79", "pf410cc5e6bf73d7a117de49a7b1af5e", "p2c045fc38d5bec1d438cc581e0f86a4", "p89043bad02f62e899855bceb1f7c71b", "pr4c963d26e89c8fff17daf449668e16", "p8cf7445cd8c5956c7480f1d507b2cd1", "p885609c358d14e07fd99d41ed314e99", "p57180cc2a70271694f52740d0d9ae1b", "p4a6bb86866883881d5f7005f861f7a4", "p57153b6ab8750d1dfd32b0c56f398d1", "p556225ea3e000a06e4a35f2bdf18481", "p1c907e22aaff36740ea8f603b901b32", "p412cd235e5252a1c8b90705bf19fbcb", "p0b9468faca13fb6100df091d20297f1", "pb4e17e90f7c1cfa54560ac4fe041db6", "p6c7313d1a025112e8778dfeedc0ffe1", "pc491219acf1f61a59c04dea39bedfa5", "p5bb4cb536f8904b937650ecbac0b94a", "p26b2932ed1a63519bb81e44ba8c104c", "pd3f1646db9a01cea29c61c33b9ee617", "p64df099fa4661b4d400c5896a39681b", "pd923a5cc21dfac7fdbf9dfa9c6fa533", "pc97d58fb9ac9bd3836bbe07fdd2735a", "p0248c4f7a28bc236748fc4610b5ef1d", "p4caa8eb789c5d0fe7d6a88b0dc9000c", "p4f2b6e1ae6b40edafecde1c73e85cd2", "pad4ad4c3b995c633a39ae06c899f18a", "p056aab2e73f92dbcebd51da8111c1ac", "pr894be363cef980d10af39d88a85398", "p0794177a7df688a3c779b7408edebf0", "pf9ec94f17dc07af1ecd3409f3523f6d", "pbb6cbd616af10953b12db428bd7af9d", "p7e22dafa4d6ee1193820480fed43953", "p067936c7397b739ec6b0d297b95ec06", "pr0a8298f7c230bf5fc40124625a7d1c", "p8718f47f94756d94d3933ea806b76c3", "p627634414f75aa172f1623c6d909bb5", "pfe71e70a5951f48e2d6be8134a69ab9", "p418e3e56998a8e8237a551840a9976d", "pa8379689f22cb9c588dadacbac3bd90", "p3a8634f7b3ad183f6f31b9123868dce", "pr796baa55fffb4891c66c5cadf93242", "p686bfc2eccc4011491c9a1ddbc7609e", "p1b1e565d80a051007b8d18f17e07e05", "p9a719fb3a18f289340fd0c43c356839", "p91e374fa50b4648e9911d941ece2b82", "p824b008f59b9e5d89842ea9bd529587", "pff44c7629a4b0a2bf96eea21a63f1f7", "p3fb6d0bed1bd2c96b172f77c97846f4", "p1fdaf8e212811fb8edd33781d84b24d", "p4150ff74059ca6c582cb6151ff9718b", "p10ff32f62339a56dee86d3a362ee8b2", "pf28d61dd4cd96570757734940a28c55", "pr0ac1235cf5613a979f9c28dc920302", "p436160a297843d6312902a0049665d1", "p196fb6607ce39e7e2156b254a9e54d0", "p283698248c8c18693974f0ed8e2c488", "p1910534b4ae98fea35ddbeb1d61cd44"];
+    </script>
+    <script type="text/javascript">
+        var qrcodePolling = false;
+    </script>
+</head>
+<body>
+<header class="header navi-header box-shadow ">
+    <div class="container ">
+        <ul class="navi-nav pull-right">
+            <li class="head-line">|</li>
+            <li class="head-line">|</li>
+            <li><a onclick="" href="https://www.qichacha.com/user_login?back=%2Fuser_login%3Fback%3D%252F">登录</a></li>
+            <li class="head-line">|</li>
+        </ul>
+    </div>
+</header>
+<script type="text/javascript" src="https://www.qichacha.com/material/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://www.qichacha.com/material/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://www.qichacha.com/material/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="https://www.qichacha.com/material/js/global.js?t=1561716350"></script>
+<link type="text/css" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/login.css?version=1561716350" rel="stylesheet"/>
+<link type="text/css" href="https://g.alicdn.com/sd/ncpc/nc.css?t=1520579483" rel="stylesheet"/>
+<script type="text/javascript" src="/static/nc.js"></script>
+<div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden"></div>
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 m-t-lg wrapper-lg" style="margin-bottom:100px;margin-top:40px;">
+            <div class="login-panel">
+                <div class="login-panel-head clearfix">
+                    <div class="login-tab col3"><a href="javascript:;" onclick="loginSwitch('verify')" id="verifyLogin">快捷登录</a>
+                    </div>
+                    <div class="login-tab col3"><a href="javascript:;" onclick="loginSwitch('normal')" id="normalLogin">密码登录</a>
+                    </div>
+                    <div class="login-tab col3"><a href="javascript:;" onclick="loginSwitch('qrcode')" id="qrcodeLogin"
+                                                   class="active">扫码登录</a></div>
+                </div>
+                <div class="login-panel-body" style="display: none;" id="normalLoginPanel">
+                    <form class="form-group login-form" role="form" id="user_login_normal">
+                        <div class="form-group"><input type='hidden' class='phone_prefix_input' value="+86"
+                                                       name='phone_prefix'/>
+                            <div class="phone-select dropdown"><a class="phone_prefix" data-toggle="dropdown"
+                                                                  aria-haspopup="true" aria-expanded="true"> 中国 +86<b
+                                    class="caret text-primary"></b></a>
+                                <div class="phoneline"></div>
+                                <div class="dropdown-menu"></div>
+                            </div>
+                            <input id="nameNormal" name="nameNormal" type="text" class="form-control form-control-error"
+                                   placeholder="请输入手机号码"> <span msgfor="nameNormal"></span></div>
+                        <div class="form-group m-t-md">
+                            <div class="show-pwd"></div>
+                            <input id="pwdNormal" name="pwdNormal" type="password"
+                                   class="form-control form-control-error"
+                                   placeholder="请输入密码"> <span msgfor="pwdNormal"></span></div>
+                        <div class="form-group m-t-md">
+                            <div id="dom_id_one"></div>
+                        </div>
+                        <div class="checkbox m-t-md"><label class="text-dark-lter"> <input type="checkbox" name="keep"
+                                                                                           checked="checked"
+                                                                                           value="option1">
+                            一周内保持登录状态
+                        </label></div>
+                        <button type="submit" class="btn btn-primary btn-block m-t-md login-btn"><strong>立即登录</strong>
+                        </button>
+                        <input type='hidden' id='csessionid_one' name='csessionid_one'/> <input type='hidden'
+                                                                                                id='sig_one'
+                                                                                                name='sig_one'/> <input
+                            type='hidden' id='token_one' name='token_one'/> <input type='hidden' id='scene_one'
+                                                                                   name='scene_one'/> <input
+                            type='hidden' name='verify_type' value="1"/></form>
+                    <div class="login-other m-t-md">
+                        <div class="clearfix">
+                            <div class="pull-left"><a href="https://www.qichacha.com/user_register" class="text-primary">账号注册</a></div>
+                            <div class="pull-left text-dark-lt m-l-sm"><a href="https://www.qichacha.com/user_forgetpassword">忘记密码？</a></div>
+                            <div class="pull-right"><a onclick="zhugeTrack('登录',{'登录方式':'微信登录'});"
+                                                       href="https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok?back=/&response_type=code&scope=snsapi_login&state=#wechat_redirect"
+                                                       class="btn-wx"></a> <a
+                                    onclick="zhugeTrack('登录',{'登录方式':'QQ登录'});" href="https://www.qichacha.com/user_qqlogin?back=/&replace=1"
+                                    class="btn-qq m-l-xs"> </a> <a onclick="zhugeTrack('登录',{'登录方式':'微博登录'});"
+                                                                   href="https://www.qichacha.com/user_weiboLogin"
+                                                                   class="btn-weibo m-l-xs"> </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-panel-body" style="display: none;" id="verifyLoginPanel">
+                    <form class="form-group login-form" role="form" id="user_login_verify">
+                        <div class="form-group"><input type='hidden' class='phone_prefix_input' value="+86"
+                                                       name='phone_prefix'/>
+                            <div class="phone-select dropdown"><a class="phone_prefix" data-toggle="dropdown"
+                                                                  aria-haspopup="true" aria-expanded="true"> 中国 +86<b
+                                    class="caret text-primary"></b></a>
+                                <div class="phoneline"></div>
+                                <ul class="dropdown-menu"></ul>
+                            </div>
+                            <input id="nameVerify" name="nameVerify" onkeyup="phoneKeyup()" oninput="phoneKeyup()"
+                                   type="text" class="form-control form-control-error"
+                                   placeholder="请输入手机号码"> <span msgfor="nameVerify"></span></div>
+                        <div class="form-group m-t-md">
+                            <div id="dom_id_two"></div>
+                        </div>
+                        <div class="form-group m-t-md"><input id="vcodeNormal" maxlength="6" name="codeVerify"
+                                                              type="text" class="form-control form-control-error"
+                                                              placeholder="短信验证码"> <a href="javascript:;"
+                                                                                      class="text-primary vcode-btn get-mobile-code">
+                            获取验证
+                        </a> <span msgfor="codeVerify"> </span></div>
+                        <div class="checkbox m-t-md"><label class="text-dark-lter"> <input type="checkbox" name="keep"
+                                                                                           checked="checked"
+                                                                                           value="option1">
+                            一周内保持登录状态
+                        </label></div>
+                        <button type="submit" class="btn btn-primary btn-block m-t-md login-btn"><strong>立即登录</strong>
+                        </button>
+                        <input type='hidden' id='csessionid_two' name='csessionid_two'/> <input type='hidden'
+                                                                                                id='sig_two'
+                                                                                                name='sig_two'/> <input
+                            type='hidden' id='token_two' name='token_two'/> <input type='hidden' id='scene_two'
+                                                                                   name='scene_two'/></form>
+                    <div class="login-other m-t-md">
+                        <div class="clearfix">
+                            <div class="pull-left"><a onclick="" href="https://www.qichacha.com/user_register" class="text-primary">账号注册</a>
+                            </div>
+                            <div class="pull-left text-dark-lt m-l-sm"><a onclick=""
+                                                                          href="https://www.qichacha.com/user_forgetpassword">忘记密码？</a></div>
+                            <div class="pull-right"><a onclick="zhugeTrack('登录',{'登录方式':'微信登录'});"
+                                                       href="https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok?back=/&response_type=code&scope=snsapi_login&state=#wechat_redirect"
+                                                       class="btn-wx"></a> <a
+                                    onclick="zhugeTrack('登录',{'登录方式':'QQ登录'});" href="https://www.qichacha.com/user_qqlogin?back=/&replace=1"
+                                    class="btn-qq m-l-xs"> </a> <a onclick="zhugeTrack('登录',{'登录方式':'微博登录'});"
+                                                                   href="https://www.qichacha.com/user_weiboLogin"
+                                                                   class="btn-weibo m-l-xs"> </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-panel-body" id="qrcodeLoginPanel">
+                    <div class="login-sao-panel">
+                        <div class="title">扫码登录请使用<br> <a href="https://www.qichacha.com/app" target="_blank" class="text-primary">企查查APP</a> >
+                            我的 > 扫一扫
+                        </div>
+                        <div class="qrcodewrap">
+                            <div class="qrcode" id='qrcodeLoginQr'></div>
+                            <img class="qrcodets" src="https://www.qichacha.com/material/theme/chacha/cms/v2/images/qrcode_ts.png"></div>
+                        <div class="tip"><span></span> 扫一扫功能支持企查查 APP11.0.6 及以上版本</div>
+                    </div>
+                    <div class="login-other m-t-md">
+                        <div class="clearfix">
+                            <div class="pull-left"><a onclick="" href="https://www.qichacha.com/user_register" class="text-primary">账号注册</a>
+                            </div>
+                            <div class="pull-left text-dark-lt m-l-sm"><a onclick=""
+                                                                          href="https://www.qichacha.com/user_forgetpassword">忘记密码？</a></div>
+                            <div class="pull-right"><a onclick="zhugeTrack('登录',{'登录方式':'微信登录'});"
+                                                       href="https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok?back=/&response_type=code&scope=snsapi_login&state=#wechat_redirect"
+                                                       class="btn-wx"></a> <a
+                                    onclick="zhugeTrack('登录',{'登录方式':'QQ登录'});" href="https://www.qichacha.com/user_qqlogin?back=/&replace=1"
+                                    class="btn-qq m-l-xs"> </a> <a onclick="zhugeTrack('登录',{'登录方式':'微博登录'});"
+                                                                   href="https://www.qichacha.com/user_weiboLogin"
+                                                                   class="btn-weibo m-l-xs"> </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/login.js"></script>
+<script>
+
+    var loginJumpUrl = "/" || INDEX_URL + "/";
+    //普通登录
+    formset({
+        "id": "user_login_normal",
+        "url": "user_loginaction",
+        "rule": {
+            "nameNormal": {
+                required: true,
+            },
+            "pwdNormal": {
+                required: true,
+                minlength: 6
+            }
+        },
+
+        "messages": {
+            "nameNormal": {
+                required: "请输入手机号",
+            },
+            "pwdNormal": {
+                required: "请输入密码",
+                minlength: "密码最少6位"
+            }
+        },
+        "sucfunc": function (rs) {
+            var zhugeValueA = $("input[name='nameNormal']").val();
+            zhugeTrack('登录-成功', {'登录方式': '密码登录', '登录账号': zhugeValueA});
+            location.href = loginJumpUrl
+        },
+        "falfunc": function (rs) {
+            zhugeTrack('登录-失败', {'登录方式': '密码登录', '失败原因': rs.msg});
+            faldia({'content': '登录失败：' + rs.msg});
+            getAliCaptcha('one');
+            document.getElementById('csessionid_one').value = '';
+            document.getElementById('sig_one').value = '';
+            document.getElementById('token_one').value = '';
+            document.getElementById('scene_one').value = '';
+        }
+    });
+    //手机验证码登录
+    formset({
+        "id": "user_login_verify",
+        "url": "user_loginbyverify",
+        "rule": {
+            "nameVerify": {
+                required: true,
+            },
+            "codeVerify": {
+                required: true,
+                minlength: 6
+            }
+        },
+
+        "messages": {
+            "nameVerify": {
+                required: "请输入手机号",
+            },
+            "codeVerify": {
+                required: "请输入手机激活码",
+                minlength: "手机激活码最少{0}个字"
+            }
+        },
+        "sucfunc": function (rs) {
+            var zhugeValueA = $("input[name='nameVerify']").val();
+            zhugeTrack('登录-成功', {'登录方式': '快捷登录', '登录账号': zhugeValueA});
+            location.href = loginJumpUrl
+        },
+        "falfunc": function (rs) {
+            zhugeTrack('登录-失败', {'登录方式': '快捷登录', '失败原因': rs.msg});
+            faldia({'content': '登录失败：' + rs.msg});
+            getAliCaptcha('two');
+            document.getElementById('csessionid_two').value = '';
+            document.getElementById('sig_two').value = '';
+            document.getElementById('token_two').value = '';
+            document.getElementById('scene_two').value = '';
+        }
+    });
+
+    var codeStatus = true;//状态
+    var waitSec = 60; //设置秒数(单位秒)
+    var i = 1;
+    var clock;
+
+    function sTimer() {
+        var r = waitSec - i;
+        if (r == 0) {
+            clearInterval(clock);
+            $(".get-mobile-code").html("重新获取");
+            codeStatus = true;
+            $(".get-mobile-code").data('clicked', false).removeClass('disabled');
+        } else {
+            $(".get-mobile-code").html("(" + r + ")秒重新发送");
+            i++;
+        }
+    };
+
+    function startClock(t) {
+        codeStatus = false;
+        i = parseInt(t);
+        clock = setInterval(sTimer, 1000);
+    }
+
+    function phoneKeyup() {
+
+    }
+
+
+    //获取手机验证码
+    function mobileCode() {
+        $(".get-mobile-code").bind('click', function () {
+            if ($(this).data('clicked')) return false;
+            var phone = $("input[name=nameVerify]").val();
+            var scene = $("input[name='scene_two']").val();
+            var token = $("input[name='token_two']").val();
+            var sig = $("input[name='sig_two']").val();
+            var csessionid = $("input[name='csessionid_two']").val();
+            var phone_prefix = $("#verifyLoginPanel input[name='phone_prefix']").val();
+            var afsFlag = '1';
+
+            if ($("input[name=nameVerify]").hasClass('validate-error')) {
+                faldia('请重新输入手机号码！');
+                return false;
+            }
+
+            if (!phone) {
+                faldia('手机号码不能为空！');
+                return false;
+            }
+
+            if (afsFlag) {
+                if (!scene || !token || !sig || !csessionid) {
+                    faldia('请先拖动滑块！');
+                    return false;
+                }
+            }
+
+            $.post(INDEX_URL + '/user_regmobileCode', {
+                scene: scene,
+                token: token,
+                sig: sig,
+                csessionid: csessionid,
+                phone: phone,
+                type: 4,
+                verify_type: 1,
+                phone_prefix: phone_prefix
+            }, function (data) {
+                if (data.success) {
+                    $("input[name=mobilecode]").removeAttr('disabled');
+                    startClock(1);
+                    $(".get-mobile-code").data('clicked', true).addClass('disabled').html("(" + waitSec + ")秒重新发送");
+                } else {
+                    getAliCaptcha('two');
+                    faldia(data.msg);
+                    $("input[name=mobilecode]").removeAttr('disabled');
+                    $(".get-mobile-code").html("重新获取").data('clicked', false).removeClass('disabled');
+                }
+            }, 'json');
+
+
+            return false;
+        });
+    }
+
+    mobileCode();
+</script>
+<script>
+    function getAliCaptcha(num) {
+        var renderDom = '#dom_id_' + num;
+        var csessionidDom = 'csessionid_' + num;
+        var sigDom = 'sig_' + num;
+        var tokenDom = 'token_' + num;
+        var sceneDom = 'scene_' + num;
+        var nc = new noCaptcha();
+        var nc_appkey = 'QNYX';  // 应用标识,不可更改
+        var nc_scene = 'login';  //场景,不可更改
+        var nc_token = [nc_appkey, (new Date()).getTime(), Math.random()].join(':');
+        var nc_option = {
+            renderTo: renderDom,
+            appkey: nc_appkey,
+            scene: nc_scene,
+            token: nc_token,
+            callback: function (data) {
+                document.getElementById(csessionidDom).value = data.csessionid;
+                document.getElementById(sigDom).value = data.sig;
+                document.getElementById(tokenDom).value = nc_token;
+                document.getElementById(sceneDom).value = nc_scene;
+            }
+        };
+        nc.init(nc_option);
+    }
+
+    $('#normalLoginPanel .phone-select').phoneSelect();
+    $('#verifyLoginPanel .phone-select').phoneSelect();
+    $('.show-pwd').click(function () {
+        if ($('.show-pwd').hasClass('active')) {
+            $('.show-pwd').removeClass('active');
+            $('.show-pwd').next().attr('type', 'password');
+        } else {
+            $('.show-pwd').addClass('active');
+            $('.show-pwd').next().attr('type', 'text');
+        }
+    });
+    setLoginType();
+    setLoginTs();
+</script>
+<link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/footer.css?time=1561716350" type="text/css"/>
+<link rel="stylesheet" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/animate.css?time=1508428800" type="text/css"/>
+<script type="text/javascript">
+    /*rightNav.js 使用变量*/
+    var personImg = "/material/theme/chacha/cms/v2/images/leftnav/person.png";
+    var frimUrl = "";
+    var comDefaultImg = "/material/theme/chacha/cms/v2/images/company.jpg"
+
+    function jumpTax() {
+        window.location.href = encodeURI(INDEX_URL + "tax");
+    }
+</script>
+<script src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/rightNav.js?timestamp=1497542400"></script>
+<style type="text/css">
+    #vipModal .modal-dialog {
+        width: 780px;
+    }
+
+    #vipModal .modal-content {
+        padding-bottom: 25px;
+        border-radius: 0px;
+        text-align: center;
+
+    }
+
+    #vipModal .close {
+        color: #FFF;
+        font-size: 40px;
+        opacity: 0.8;
+        font-weight: normal;
+        position: absolute;
+        right: 10px;
+    }
+
+    .step2 {
+        display: none;
+    }
+</style>
+<link type="text/css" href="https://www.qichacha.com/material/theme/chacha/cms/v2/css/vip-modal.css?version=1561716350" rel="stylesheet"/>
+<script type="text/javascript" src="https://www.qichacha.com/material/theme/chacha/cms/v2/js/pay.js?time=1561716350"></script>
+<script type="text/javascript">
+    var vipModalTitle;
+    var userid = '';
+
+    function showVipModal(title, subTitle, img, linkName, linkUrl, isStep2) {
+
+        if (!userid) {
+            getCaptcha();
+            $('#loginModal').modal('show');
+            return;
+        }
+
+        $("#vipModal .step1").show();
+        $("#vipModal .step2").hide();
+
+        if (title) {
+            $('#vipModal .vip-title .title').text(title);
+            //vipModalTitle = title;
+        }
+        if (subTitle) {
+            $('#vipModal .vip-title .sub-title span').text(subTitle);
+        }
+        if (img) {
+            if (title == '雷达监控') {
+                var imgUrl = "/material/theme/chacha/cms/v2/images/vip/ldjk.png";
+                $("#vipModal .demo-img").attr("src", imgUrl);
+            } else {
+                var imgUrl = "/material/theme/chacha/cms/v2/images/vip/" + img + ".png";
+                $("#vipModal .demo-img").attr("src", imgUrl);
+            }
+        } else {
+            var imgUrl = "/material/theme/chacha/cms/v2/images/vip/default.png";
+            $("#vipModal .demo-img").attr("src", imgUrl);
+        }
+        if (linkName && linkUrl) {
+            $("#vipModal .vip-demo-link").show();
+            $("#vipModal .vip-demo-link").text(linkName + '>');
+            $("#vipModal .vip-demo-link").attr('href', linkUrl);
+        } else {
+            $("#vipModal .vip-demo-link").hide();
+        }
+
+        /*if(isStep2){
+            $("#vipModal .step1").hide();
+            $("#vipModal .step2").show();
+            strartBuy();
+        }*/
+
+        $('#vipModal').modal('show');
+
+        // 嵌入的关闭
+        $(".vip-insert-wrap .step1").show();
+        $(".vip-insert-wrap .step2").hide();
+    }
+
+    $('#vipModal').on('hide.bs.modal', function () {
+        clearPay();
+        isPayShow = false;
+    })
+
+    function modalJumpVip() {
+        isPayShow = true;
+
+        strartBuy();
+
+        $("#vipModal .step1").hide();
+        $("#vipModal .step2").show();
+
+        /*yaojie old
+        location.href = INDEX_URL+'/vip?goods_id='+$("input[name='goods_id']").val();
+        if(vipModalTitle){
+            //zhugeTrack(vipModalTitle.split(' ')[0]+'-开通VIP');
+        }else{
+            //zhugeTrack('VIP弹框-开通VIP');
+        }*/
+    }
+
+    var isPayShow = false;
+    var wxOrderStatus = 0;
+    var wxOrderCode = '';
+    var wxpayLoad = false;
+    var alipayLoad = false;
+    var cPayType = 2;
+    var isModalShow = true;
+    var cGoods_id = "17";
+    var cYear = "3";
+    var cPrice = "720";
+
+    $('#vipModal .vip-year-list .vip-kuang').on('click', function () {
+        changeYear($(this).attr('data-id'), $(this).attr('data-year'), $(this).attr('data-price'), this);
+        var couponCode = $("#vipModal input[name='coupon_code']").val();
+        if (couponCode == '') {
+            //checkPay(cPayType);
+        }
+    });
+
+
+</script>
+
+
+</body>
+</html>
