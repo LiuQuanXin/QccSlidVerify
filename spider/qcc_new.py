@@ -15,7 +15,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
-from commen.user_agent_list import new_header
 
 from pyvirtualdisplay import Display
 import logging as logger
@@ -38,10 +37,8 @@ class BrandSpider(object):
         option = webdriver.FirefoxOptions()
         path = '/Users/admin/Downloads/geckodriver'
         # option.add_argument('-headless')
-        ua = new_header()
-        print ua
         # dcap['firefox.page.settings.userAgent'] = ua
-        option.set_preference('general.useragent.override', ua)
+        option.set_preference('general.useragent.override', "ua")
         option.add_argument('--disable-gpu')
         option.add_argument('--no-sandbox')
         option.add_argument('log-level=5')
@@ -76,7 +73,6 @@ class BrandSpider(object):
         self.driver.get("http://127.0.0.1:8880/qcc")
         # BTN = self.wait.until(EC.element_to_be_clickable((By.ID, 'nc_1_n1z')))
         # print BTN
-        
         while 1:
             try:
                 for i in range(1, 7):
